@@ -1,0 +1,840 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Secular+One&display=swap');
+/* Bootsrap Icon */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  transition: all 0.3s;
+}
+
+:root {
+  --white: #ffffff;
+  --white2: #e5e5e5;
+  --white3: #cccccc;
+  --blue: #0194f3;
+  --blue2: #015a8a;
+  --blue3: #45abff;
+  --blue4: #0062b3;
+  --navy: #00253f;
+  --navy1: #004465;
+  --darkgrey: #434343;
+  --darkmode-bg: #121212;
+  --darkmode-text: #ffffff;
+  --darkmode-accent: #1a1a1a;
+  --sepiamode-bg: #c0a080;
+  --sepiamode-text: #000000;
+  --sepia-accent: #8b4513;
+}
+
+html::-webkit-scrollbar {
+  width: 0.6rem;
+}
+html::-webkit-scrollbar-track {
+  background: var(--white);
+}
+html::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: var(--navy);
+}
+html::-webkit-scrollbar-thumb:hover {
+  border-radius: 5px;
+  background: var(--navy1);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--darkgrey);
+}
+
+/* AWAL HEADER */
+header {
+  min-height: 110vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.video-background {
+  width: 100vw;
+  height: 110vh;
+  z-index: -1;
+  object-fit: cover;
+}
+
+nav {
+  top: 0;
+  width: 100vw;
+  min-height: 70px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+}
+
+nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .logo {
+  text-decoration: none;
+  margin-left: 2rem;
+}
+
+nav .logo h5 {
+  letter-spacing: 1px;
+  font-size: 1.8rem;
+  color: var(--white);
+  text-transform: lowercase;
+  font-weight: bold;
+}
+
+nav ul {
+  margin-top: 0.5rem;
+  gap: 30px;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  list-style-type: none;
+  text-align: center;
+  transition: 0.1s;
+}
+
+nav ul li:hover {
+  font-weight: 700;
+}
+
+nav ul li a {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+nav .nav-icon-container {
+  gap: 1.5rem;
+  margin-right: 2rem;
+  display: flex;
+}
+
+nav .nav-icon-container i {
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+nav .nav-icon-container i:hover {
+  font-size: 1.52rem;
+}
+/* AKHIR HEADER */
+
+/* AWAL HAMBURGER MENU */
+.hamburger {
+  position: relative;
+  display: none;
+  width: 35px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+  margin-right: 2rem;
+  z-index: 100;
+}
+
+.hamburger .bar,
+.hamburger:after,
+.hamburger:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  margin: 6px 0px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.hamburger.is-active:before {
+  -webkit-transform: rotate(-45deg) translate(-8px, 6px);
+  transform: rotate(-45deg) translate(-8px, 6px);
+}
+.hamburger.is-active:after {
+  -webkit-transform: rotate(45deg) translate(-9px, -8px);
+  transform: rotate(45deg) translate(-9px, -8px);
+}
+.hamburger.is-active .bar {
+  opacity: 0;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 5rem;
+  left: 100%;
+  width: 100%;
+  min-height: 100vh;
+  display: none;
+  z-index: 98;
+  background: rgba(0, 0, 0, 0.9);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.mobile-nav.is-active {
+  left: 0%;
+}
+.mobile-nav a {
+  display: block;
+  width: 100%;
+  max-width: 70%;
+  margin: 0 auto 16px;
+  text-align: center;
+  padding: 1rem 2rem;
+  background-color: var(--navy);
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+}
+.mobile-nav a:hover {
+  background-color: var(--navy1);
+}
+/* AKHIR HAMBURGER MENU */
+
+/* AWAL HERO */
+section.hero {
+  gap: 20px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.hero h1 {
+  font-size: 2.3rem;
+  font-weight: 400;
+  color: var(--white);
+  text-align: center;
+}
+
+section.hero button {
+  margin-top: 2rem;
+  letter-spacing: 0.3em;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: var(--white);
+  color: var(--white3);
+  border: none;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(90deg, var(--navy) 15.1%, var(--navy1) 85.42%);
+  border-radius: 1.8rem;
+  box-shadow: 3px 3px rgba(255, 255, 255, 0.1);
+}
+
+section.hero button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+/* AKHIR HERO */
+
+/* AWAL TRIP WISE CONTENT */
+section.tripwise-content {
+  border-radius: 4rem 4rem 0 0;
+  min-height: 100vh;
+  margin-top: -4rem;
+  position: relative;
+  background-color: var(--white);
+}
+
+section.tripwise-content h2 {
+  text-align: center;
+  padding-top: 5rem;
+  color: var(--darkgrey);
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 3rem;
+}
+
+section.tripwise-content .about-tripwise {
+  padding: 1rem;
+}
+
+section.tripwise-content .about-tripwise .desc-tripwise1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.tripwise-content .about-tripwise .desc-tripwise1 p {
+  max-width: 38rem;
+  word-spacing: 2px;
+  color: var(--darkgrey);
+}
+
+section.tripwise-content .about-tripwise .desc-tripwise1 .gallery1 {
+  max-width: 30rem;
+  margin-right: 5rem;
+}
+
+section.tripwise-content .about-tripwise .desc-tripwise1 .gallery2 {
+  margin-left: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3rem;
+}
+
+section.tripwise-content .about-tripwise .desc-tripwise1 .gallery2 img {
+  max-width: 8rem;
+}
+/* AKHIR TRIP WISE CONTENT */
+
+/* OUR PACKAGE */
+section.our-package-content {
+  min-height: 100vh;
+  position: relative;
+}
+
+section.our-package-content h2 {
+  text-align: center;
+  padding-top: 5rem;
+  color: var(--darkgrey);
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 3rem;
+}
+
+section.our-package-content .category {
+  margin: 3rem 4rem 0rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.our-package-content .category .title-category {
+  width: 80%;
+}
+
+section.our-package-content .container-category {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 1rem;
+  max-width: 80%;
+}
+
+section.our-package-content .container-category .box {
+  height: 13rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+section.our-package-content .box img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+section.our-package-content .content {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 82%;
+  left: 0;
+  background: rgba(0, 37, 63, 0.5);
+}
+
+section.our-package-content .content .tag {
+  display: flex;
+  align-items: center;
+  height: 2.3rem;
+  width: 100%;
+  padding-left: 1rem;
+  background-color: var(--navy);
+}
+
+section.our-package-content .content .tag h5 {
+  font-size: 1rem;
+  color: var(--white);
+}
+
+section.our-package-content .box:hover .content {
+  top: 20%;
+}
+
+section.our-package-content .content .info {
+  margin: 0.5rem 1rem;
+}
+
+section.our-package-content .content .info p {
+  font-size: 1rem;
+  color: var(--white);
+  line-height: 0.7rem;
+}
+
+section.our-package-content .content .btn {
+  display: flex;
+  justify-content: center;
+}
+
+section.our-package-content .content button {
+  padding: 0.4rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: var(--white);
+  background: var(--navy);
+  border: none;
+}
+
+section.our-package-content .content button:hover {
+  background-color: var(--navy1);
+}
+/* AKHIR OUR-PACKAGE */
+
+/* TESTIMONIAL */
+section.testimonial-content {
+  min-height: 70vh;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+section.testimonial-content h2 {
+  text-align: center;
+  padding-top: 5rem;
+  color: var(--darkgrey);
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 3rem;
+}
+
+section.testimonial-content .card-carousel {
+  width: 90%;
+  height: auto;
+  padding: 3rem 2rem;
+  background-color: var(--white3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+section.testimonial-content .card-carousel .avatar {
+  margin-right: 2rem;
+  margin-bottom: 4rem;
+}
+
+section.testimonial-content .card-carousel img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 100px;
+}
+
+/* AWAL FOOTER */
+footer {
+  min-height: 10vh;
+  position: relative;
+  background: var(--navy);
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 0.5fr;
+  column-gap: 10px;
+  row-gap: 30px;
+  padding: 50px;
+  padding-top: 3rem;
+}
+
+footer form {
+  line-height: 30px;
+  position: relative;
+  order: 0;
+}
+
+footer label {
+  color: var(--white);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-style: italic;
+  width: 100%;
+}
+
+footer input.email {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: none;
+  width: 350px;
+  border: none;
+  border-bottom: 1px solid var(--darkgrey);
+  color: var(--white);
+}
+
+footer input.email ::placeholder {
+  color: var(--darkgrey);
+}
+
+footer .email-submit {
+  background: none;
+  color: var(--white);
+  width: 50px;
+  height: 19px;
+  padding: 0;
+  margin-left: -50px;
+  border: none;
+  font-size: 1.3rem;
+}
+
+footer .email-submit:hover {
+  background: none;
+  color: var(--navy1);
+}
+
+footer .footer-social-icons {
+  display: flex;
+  gap: 30px;
+  order: 2;
+}
+
+footer .footer-links {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  order: 1;
+}
+
+footer .footer-links ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: -2rem;
+  line-height: 1rem;
+}
+
+footer .footer-links ul li {
+  list-style-type: none;
+  list-style: none;
+}
+
+footer .footer-links ul li a {
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+footer .footer-links ul li a:hover {
+  font-weight: bold;
+}
+
+footer address {
+  order: 3;
+  line-height: 1rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--darkgrey);
+}
+
+footer .footer-partners {
+  order: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+footer .footer-partners span {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+footer .footer-partners-logo {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+footer .footer-partners-logo img {
+  height: 20px;
+  width: auto;
+}
+
+footer .copyright {
+  order: 5;
+  align-self: center;
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: #58636d;
+  text-transform: uppercase;
+}
+/* AKHIR FOOTER */
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* HEADER */
+  nav ul,
+  nav .nav-icon-container {
+    display: none;
+  }
+
+  section.hero {
+    margin-bottom: 20rem;
+  }
+
+  section.hero h1 {
+    font-size: 3rem;
+    padding: 0 3rem;
+  }
+
+  section.hero button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+
+  /* HAMBURGER MENU */
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* TRIPWISE CONTENT */
+  section.tripwise-content {
+    min-height: 50vh;
+  }
+
+  section.tripwise-content .about-tripwise {
+    padding: 1rem 3rem;
+  }
+
+  section.tripwise-content .about-tripwise .desc-tripwise1 .gallery1 img {
+    width: 13rem;
+  }
+  section.tripwise-content .about-tripwise .desc-tripwise1 .gallery2 img {
+    max-width: 5rem;
+  }
+
+  /* OUR-PACKAGE CONTENT */
+
+  section.our-package-content .container-category {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* TESTIMONIAL */
+  section.testimonial-content {
+    min-height: 40vh;
+  }
+
+  section.testimonial-content .card-carousel {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    grid-template-columns: 1.5fr 2fr;
+  }
+
+  footer form {
+    order: 0;
+  }
+  footer address {
+    order: 2;
+  }
+  footer .footer-links {
+    order: 1;
+  }
+  footer .footer-social-icons {
+    order: 4;
+  }
+  footer .footer-partners {
+    order: 3;
+  }
+  footer .copyright {
+    order: 5;
+  }
+  footer input.email {
+    width: 250px;
+  }
+
+  /* DARK MODE */
+  .mobile-nav a,
+  section.tripwise-content,
+  section.our-package-content,
+  section.testimonial-content,
+  footer {
+    background-color: var(--darkmode-bg);
+  }
+
+  section.hero button,
+  section.our-package-content .content .tag,
+  section.our-package-content .content button,
+  section.testimonial-content .card-carousel {
+    background: var(--darkmode-accent);
+  }
+  nav .logo h5,
+  section.tripwise-content h2,
+  section.testimonial-content h2,
+  section.testimonial-content p,
+  section.tripwise-content .about-tripwise .desc-tripwise1 p,
+  section.our-package-content h2,
+  section.our-package-content .category .title-category,
+  section.testimonial-content .card-carousel .text-testimoni {
+    color: var(--darkmode-text);
+  }
+}
+
+/* MOBILE */
+@media (min-width: 320px) and (max-width: 767px) {
+  /* HEADER */
+  nav ul,
+  nav .nav-icon-container {
+    display: none;
+  }
+
+  section.hero h1 {
+    font-size: 1.7rem;
+    padding: 0 1.5rem;
+  }
+
+  /* HAMBURGER MENU */
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .hamburger {
+    display: block;
+  }
+  /* TRIPWISE CONTENT */
+  section.tripwise-content .about-tripwise {
+    padding: 1rem 3rem;
+  }
+  section.tripwise-content .about-tripwise .desc-tripwise1 {
+    flex-direction: column;
+    text-align: justify;
+  }
+  section.tripwise-content .about-tripwise .desc-tripwise1 .gallery1 {
+    margin-right: 0rem;
+  }
+  section.tripwise-content .about-tripwise .desc-tripwise1 .gallery1 img {
+    width: 13rem;
+  }
+  section.tripwise-content .about-tripwise .desc-tripwise1 .gallery2 img {
+    max-width: 5rem;
+  }
+  section.tripwise-content .about-tripwise .desc-tripwise1 .gallery2 {
+    margin-left: 0rem;
+  }
+
+  /* OUR-PACKAGE CONTENT */
+  section.our-package-content .container-category {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* TESTIMONIAL */
+  section.testimonial-content {
+    min-height: 40vh;
+  }
+  section.testimonial-content .card-carousel {
+    width: 100%;
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+  /* FOOTER */
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  footer form {
+    order: 0;
+  }
+  footer address {
+    order: 3;
+    text-align: center;
+  }
+  footer .footer-links {
+    order: 2;
+  }
+  footer .footer-social-icons {
+    order: 1;
+  }
+  footer .footer-partners {
+    order: 4;
+  }
+  footer .copyright {
+    order: 5;
+  }
+  footer input.email {
+    width: 250px;
+  }
+  footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    order: 1;
+    text-align: center;
+  }
+
+  /* DARK MODE */
+  .mobile-nav a,
+  section.tripwise-content,
+  section.our-package-content,
+  section.testimonial-content,
+  footer {
+    background-color: var(--sepiamode-bg);
+  }
+
+  section.hero button,
+  section.our-package-content .content .tag,
+  section.our-package-content .content button,
+  section.testimonial-content .card-carousel {
+    background: var(--sepia-accent);
+  }
+  nav .logo h5,
+  section.tripwise-content h2,
+  section.testimonial-content h2,
+  section.testimonial-content p,
+  section.tripwise-content .about-tripwise .desc-tripwise1 p,
+  section.our-package-content h2,
+  section.our-package-content .category .title-category,
+  section.testimonial-content .card-carousel .text-testimoni,
+  footer label,
+  footer ::placeholder,
+  footer .footer-links ul li a,
+  footer .footer-partners span {
+    color: var(--sepiamode-text);
+  }
+}
